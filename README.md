@@ -30,3 +30,5 @@ The `SelectDropdown` component accepts the following props:
 
 The component consists of a `div` element with a `relative` class for positioning. It includes a `select` element for the dropdown options and a `label` element for the floating label effect.
 
+![Sample Preview](https://github.com/AroshaRavishan/Floating-Input-Dropdown-Common-Components-/blob/main/Sample%20Preview.png)
+
