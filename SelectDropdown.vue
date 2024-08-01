@@ -10,18 +10,28 @@ const props = defineProps({
         type: String,
         required: true
     },
+    placeholder: {
+        type: String,
+        required: true
+    },
     options: {
         type: Array,
         required: true
+    },
+    modelValue: {
+        type: [String, Number],
+        default: ''
     }
 })
+
+const emit = defineEmits(['update:modelValue'])
 </script>
 
 <template>
-    <div class="relative mt-4">
-        <select :id="id"
-            class="block px-2.5 pb-2.5 pt-4 w-full text-sm text-gray-900 bg-transparent rounded-lg border border-ash-750 appearance-none focus:outline-none focus:ring-0 focus:border-primary-light peer">
-            <option value="" selected>Select an option</option>
+    <div class="relative w-full mt-4">
+        <select :id="id" :value="modelValue" @change="$emit('update:modelValue', $event.target.value)"
+            class="block px-2.5 pb-2.5 pt-4 w-full text-sm text-gray-900 bg-transparent rounded-1 border border-ash-750 appearance-none focus:outline-none focus:ring-0 focus:border-primary-light peer">
+            <option value="" disabled selected>{{ placeholder }}</option>
             <option v-for="option in options" :key="option.value" :value="option.value">
                 {{ option.label }}
             </option>
